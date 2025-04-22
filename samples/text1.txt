@@ -1,0 +1,1 @@
+Share the message above in Morse code (here is an example). The current sound, light and speed settings will be used. If they know Morse code you can hide the text.
