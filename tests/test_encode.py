@@ -51,6 +51,17 @@ class TestEncoder:
         """Test encoding invalid input raises ValueError"""
         with pytest.raises(ValueError):
             encode_to_morse("Hello©World")
+            
+    def test_encode_with_skip_unknown(self):
+        """Test encoding with skip_unknown option"""
+        # Test with invalid char in the middle of a word
+        assert encode_to_morse("Hello©World", skip_unknown=True) == ".... . .-.. .-.. --- / .-- --- .-. .-.. -.."
+        
+        # Test with all invalid chars in a word
+        assert encode_to_morse("Hello ©§± World", skip_unknown=True) == ".... . .-.. .-.. --- / .-- --- .-. .-.. -.."
+        
+        # Test with some words containing only invalid chars
+        assert encode_to_morse("Hello §§§ World", skip_unknown=True) == ".... . .-.. .-.. --- / .-- --- .-. .-.. -.."
 
     @patch('sys.stdout')
     @patch('sys.argv', ['encode.py', 'HELLO'])
@@ -65,6 +76,13 @@ class TestEncoder:
         """Test main function with nonexistent input file"""
         result = main()
         assert result == 1
+        
+    @patch('sys.stdout')
+    @patch('sys.argv', ['encode.py', 'Hello©World', '--skip-unknown'])
+    def test_main_with_skip_unknown_option(self, mock_stdout):
+        """Test main function with skip_unknown option"""
+        result = main()
+        assert result == 0
     
     def test_main_with_input_file(self):
         """Test main function with input file"""

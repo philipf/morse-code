@@ -9,6 +9,7 @@ A Python application to convert English text to Morse code and vice versa.
 - Input from command line arguments or files
 - Output to standard output or files
 - Support for all 26 English letters (case-insensitive), numbers 0-9, and basic punctuation
+- Option to skip characters that cannot be converted to Morse code
 
 ## Installation
 
@@ -36,7 +37,7 @@ A Python application to convert English text to Morse code and vice versa.
 To encode English text to Morse code:
 
 ```
-python encode.py [--input INPUT_FILE] [--output OUTPUT_FILE] [text_to_encode]
+python encode.py [--input INPUT_FILE] [--output OUTPUT_FILE] [--skip-unknown] [text_to_encode]
 ```
 
 Examples:
@@ -52,6 +53,9 @@ python encode.py "Hello World" --output output.txt
 
 # Encode text from a file and save to another file
 python encode.py --input input.txt --output output.txt
+
+# Encode text with unsupported characters by skipping them
+python encode.py "Hello © World" --skip-unknown
 ```
 
 ### Decoding (Morse Code to English)
