@@ -15,14 +15,14 @@ A Python application to convert English text to Morse code and vice versa.
 
 1. Clone this repository:
    ```
-   git clone https://github.com/yourusername/morse-code.git
+   git clone https://github.com/philipf/morse-code.git
    cd morse-code
    ```
 
 2. (Optional) Create a virtual environment:
    ```
-   python -m venv venv
-   source venv/bin/activate  # On Windows, use: venv\Scripts\activate
+   python -m venv .venv
+   source .venv/bin/activate  
    ```
 
 3. Install dependencies:
