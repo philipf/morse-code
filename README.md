@@ -69,7 +69,7 @@ python decode.py [--input INPUT_FILE] [--output OUTPUT_FILE] [morse_to_decode]
 Examples:
 ```
 # Decode Morse code from command line
-python decode.py ".... . .-.. .-.. ---   .-- --- .-. .-.. -.."
+python decode.py ".... . .-.. .-.. --- / .-- --- .-. .-.. -.."
 
 # Decode Morse code from a file
 python decode.py --input morse.txt
@@ -84,7 +84,7 @@ python decode.py --input morse.txt --output decoded.txt
 ## Morse Code Format
 
 - Space between letters: 1 space
-- Space between words: 3 spaces
+- Space between words: 1 forward slash
 
 ## Running Tests
 
